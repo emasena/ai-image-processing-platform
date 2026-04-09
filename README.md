@@ -64,14 +64,62 @@ S3 + DynamoDB
 
 ## Deployment (AWS CLI)
 
-```bash
-cd aws-cli-deployment
 
-./01-network.sh
-./02-security.sh
-./03-alb.sh
-./04-ecr.sh
-./05-ecs.sh
-./06-route53.sh
 
 -----------
+
+
+### Challenges & Solutions 
+
+## ECS Image Architecture Issue
+
+Error:
+
+image Manifest does not contain descriptor matching platform 'linux/amd64'
+
+Fix:
+
+docker buildx build --platform linux/amd64 --push ...
+
+## Route 53 DNS Not Resolving
+
+Problem:
+Hosted zone mismatch
+
+Fix:
+
+Updated domain registrar nameservers to match Route 53 hosted zone
+
+## ECS Service Not Stabilizing
+
+Fix:
+
+Verified ALB target group health checks
+
+Ensured container port mapping matched ALB listener
+
+#### Production Improvements
+
+HTTPS with ACM
+
+Auto Scaling (ECS Service)
+
+Secrets Manager integration
+
+CloudFront CDN
+
+WAF protection
+
+CI/CD pipeline
+
+### What I Learned
+
+Deep understanding of AWS networking (VPC, subnets, NAT)
+
+ECS + ALB integration in production environments
+
+Debugging real-world cloud issues (DNS, containers, IAM)
+
+Infrastructure design for scalability and security
+
+Difference between serverless and container workloads
