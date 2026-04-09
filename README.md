@@ -62,12 +62,6 @@ S3 + DynamoDB
 - No hardcoded credentials  
 - WAF ready for protection  
 
-## Deployment (AWS CLI)
-
-
-
------------
-
 
 ### Challenges & Solutions 
 
@@ -98,7 +92,7 @@ Verified ALB target group health checks
 
 Ensured container port mapping matched ALB listener
 
-#### Production Improvements
+## Production Improvements
 
 HTTPS with ACM
 
@@ -112,10 +106,21 @@ WAF protection
 
 CI/CD pipeline
 
-### What I Learned
+## What I Learned
 
 Deep understanding of AWS networking (VPC, subnets, NAT)
 
+## Deployment (AWS CLI)
+
+```bash
+cd aws-cli-deployment
+
+./01-network.sh
+./02-security.sh
+./03-alb.sh
+./04-ecr.sh
+./05-ecs.sh
+./06-route53.sh
 ECS + ALB integration in production environments
 
 Debugging real-world cloud issues (DNS, containers, IAM)
