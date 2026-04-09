@@ -121,10 +121,4 @@ cd aws-cli-deployment
 ./04-ecr.sh
 ./05-ecs.sh
 ./06-route53.sh
-ECS + ALB integration in production environments
 
-Debugging real-world cloud issues (DNS, containers, IAM)
-
-Infrastructure design for scalability and security
-
-Difference between serverless and container workloads
